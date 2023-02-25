@@ -1,5 +1,5 @@
 import React from 'react';
-import '@styles/Loader/loader.scss';
+import '@components/Loader/loader.scss';
 
 export enum LoaderSize {
   s = 's',

@@ -1,5 +1,5 @@
 import React from 'react';
-import '@styles/Card/card.scss';
+import '@components/Card/card.scss';
 
 export type CardProps = {
   /** URL изображения */

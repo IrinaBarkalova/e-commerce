@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '@styles/MultiDropdown/multiDropdown.scss';
+import '@components/MultiDropdown/multiDropdown.scss';
 
 export type Option = {
   /** Ключ варианта, используется для отправки на бек/использования в коде */
