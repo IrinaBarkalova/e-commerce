@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Loader } from '@components/Loader/Loader';
 import classNames from 'classnames';
-import '@styles/Button/button.scss';
-import '@styles/Loader/loader.scss';
+import '@components/Button/button.scss';
+import '@components/Loader/loader.scss';
 
 export type ButtonProps = React.PropsWithChildren<{
   /**

@@ -1,5 +1,5 @@
 import React from 'react';
-import '@styles/Checkbox/checkbox.scss';
+import '@components/CheckBox/checkbox.scss';
 
 export type CheckBoxProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
