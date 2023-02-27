@@ -1,5 +1,7 @@
 import React from 'react';
-import '@components/Loader/loader.scss';
+
+import styles from '@components/Loader/loader.module.scss';
+import classNames from 'classnames';
 
 export enum LoaderSize {
   s = 's',
@@ -13,15 +15,17 @@ export type LoaderProps = {
   className?: string;
 };
 export const Loader: React.FC<LoaderProps> = (props) => {
-  let className: string;
-
-  className = props.size ? `${props.size}` : 'm';
-  className += props.className ? ` ${props.className}` : '';
-
+  let res = classNames(
+    styles.loadingSpinner,
+    { [styles.m]: !props.size || props.size === 'm' },
+    { [styles.s]: props.size === 's' },
+    { [styles.l]: props.size === 'l' },
+    props.className
+  );
   return (
     <>
       {(props.loading || props.loading === undefined) && (
-        <div className={`loading-spinner ${className}`} />
+        <div className={res} />
       )}
     </>
   );

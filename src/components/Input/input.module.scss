@@ -1,0 +1,28 @@
+@import '@styles/variables';
+
+.input {
+  width: 299.72px;
+  height: 84px;
+  background: #ffffff;
+  box-shadow: 0 4px 120px rgba(175, 173, 181, 0.15);
+  font-family: 'Eudoxus Sans', serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 180%;
+  color: #afadb5;
+  border: none;
+
+  &:focus:not([disabled]) {
+    border: 1px solid $main-green-color;
+    outline: none;
+  }
+  &_disabled {
+    font-family: 'Roboto', 'Roboto Light', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 180%;
+    color: $main-black-color;
+  }
+}

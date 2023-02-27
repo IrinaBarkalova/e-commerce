@@ -1,9 +1,9 @@
 import React from 'react';
 
+import styles from '@components/Button/button.module.scss';
 import { Loader } from '@components/Loader/Loader';
+import loaderStyles from '@components/Loader/loader.module.scss';
 import classNames from 'classnames';
-import '@components/Button/button.scss';
-import '@components/Loader/loader.scss';
 
 export type ButtonProps = React.PropsWithChildren<{
   /**
@@ -16,14 +16,14 @@ export type ButtonProps = React.PropsWithChildren<{
 
 export const Button: React.FC<ButtonProps> = ({ loading, ...props }) => {
   let res = classNames(
-    'button',
-    { button_disabled: props.disabled || loading },
+    styles.button,
+    { [styles.button_disabled]: props.disabled || loading },
     props.className
   );
 
   return (
     <button type={'button'} disabled={loading} {...props} className={res}>
-      {loading && <Loader className={' button-loader'} />}
+      {loading && <Loader className={loaderStyles.buttonLoader} />}
       {props.children}
     </button>
   );
