@@ -1,0 +1,41 @@
+@import '@styles/variables';
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 394px;
+  &_img {
+    max-height: 360px;
+  }
+  &_title {
+    height: 34px;
+    font-family: 'Eudoxus Sans', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 34px;
+    letter-spacing: 0.01em;
+    color: $main-black-color;
+    margin-top: 18px;
+  }
+  &_subtitle {
+    height: 32px;
+    margin-top: 6px;
+    font-family: 'Eudoxus Sans', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 32px;
+    color: #afadb5;
+  }
+  &_content {
+    margin-top: 18px;
+    font-family: 'Eudoxus Sans', serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 130%;
+
+    color: $main-black-color;
+  }
+}

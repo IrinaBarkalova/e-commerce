@@ -1,0 +1,74 @@
+@import '@styles/variables';
+
+.multiDropdown {
+  width: 380px;
+  &__res {
+    display: flex;
+    align-items: center;
+    width: 380px;
+    height: 86px;
+    box-shadow: 0 4px 120px rgba(175, 173, 181, 0.15);
+    font-family: 'Eudoxus Sans', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 180%;
+    color: #afadb5;
+    list-style-type: none;
+    margin-bottom: 15px;
+    padding: 0 0 0 26px;
+    background: none;
+
+    border: none;
+
+    cursor: pointer;
+    outline: inherit;
+    &:focus:not([disabled]) {
+      font-family: 'Eudoxus Sans', serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 180%;
+      color: $main-black-color;
+    }
+    &:disabled {
+      font-family: 'Eudoxus Sans', serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 180%;
+      color: $main-black-color;
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 50px;
+    padding: 0 0 0 16px;
+    border: 1px solid #ffffff;
+    list-style-type: none;
+    background: #ffffff;
+  }
+  &__notClicked {
+    font-family: 'Eudoxus Sans', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    all: unset;
+  }
+  &__clicked {
+    font-family: 'Eudoxus Sans', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    all: unset;
+    color: $main-green-color;
+  }
+  &__box {
+    box-shadow: 0 4px 120px rgba(175, 173, 181, 0.15);
+  }
+}

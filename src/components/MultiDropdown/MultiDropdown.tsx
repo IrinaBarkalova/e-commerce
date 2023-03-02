@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '@components/MultiDropdown/multiDropdown.scss';
+
+import styles from '@components/MultiDropdown/multiDropdown.module.scss';
 
 export type Option = {
   /** Ключ варианта, используется для отправки на бек/использования в коде */
@@ -34,19 +35,19 @@ export const MultiDropdown: React.FC<MultiDropdownProps> = (props) => {
     clicked.find((item) => item.key === option.key);
 
   return (
-    <div className={'multi-dropdown'}>
+    <div className={styles.multiDropdown}>
       <button
-        className={'multi-dropdown__res'}
+        className={styles.multiDropdown__res}
         disabled={props.disabled}
         onClick={() => setIsOpen(!isOpen)}
       >
         {props.pluralizeOptions(clicked)}
       </button>
       {!props.disabled && isOpen && (
-        <div className={'multi-dropdown__box'}>
+        <div className={styles.multiDropdown__box}>
           {props.options.map((option) => {
             return (
-              <li key={option.key} className={'multi-dropdown__item'}>
+              <li key={option.key} className={styles.multiDropdown__item}>
                 {(optionIsClicked(option) && (
                   <button
                     onClick={() => {
@@ -57,7 +58,7 @@ export const MultiDropdown: React.FC<MultiDropdownProps> = (props) => {
                       setClicked(newClicked);
                       props.onChange(newClicked);
                     }}
-                    className="multi-dropdown__clicked"
+                    className={styles.multiDropdown__clicked}
                   >
                     {option.value}
                   </button>
@@ -68,7 +69,7 @@ export const MultiDropdown: React.FC<MultiDropdownProps> = (props) => {
                       setClicked(newClicked);
                       props.onChange([option]);
                     }}
-                    className="multi-dropdown__notClicked"
+                    className={styles.multiDropdown__notClicked}
                   >
                     {option.value}
                   </button>
