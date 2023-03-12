@@ -23,20 +23,26 @@ import {
   observable,
   runInAction,
 } from 'mobx';
-type PrivateFields = '_products' | '_meta';
+
+type PrivateFields = '_products' | '_meta' | '_total';
+
 export default class ProductsListStore implements IProductsStore, ILocalStore {
   private apiStore = rootStore.apiStore;
   private _products: CollectionT<number, ProductsModel> =
     getInitialCollectionModel();
   private _meta: Meta = Meta.initial;
+  private _total: number = 0;
 
   constructor() {
     makeObservable<ProductsListStore, PrivateFields>(this, {
       _products: observable.ref,
       _meta: observable,
+      _total: observable,
       products: computed,
       meta: computed,
+      total: computed,
       getProductsList: action,
+      getTotal: action,
     });
   }
 
@@ -47,7 +53,29 @@ export default class ProductsListStore implements IProductsStore, ILocalStore {
   get meta(): Meta {
     return this._meta;
   }
-
+  get total(): number {
+    return this._total;
+  }
+  async getTotal(): Promise<void> {
+    const response = await this.apiStore.request<ProductsApiModel[]>({
+      method: HTTPMethod.GET,
+      endpoint: 'products',
+      headers: { Accept: 'application/json' },
+      data: {},
+    });
+    runInAction(() => {
+      if (!response.success) {
+        this._meta = Meta.error;
+      }
+      try {
+        this._meta = Meta.success;
+        this._total = response.data.length ?? 0;
+        return;
+      } catch (e) {
+        this._meta = Meta.error;
+      }
+    });
+  }
   async getProductsList(params: GetProductsListParams): Promise<void> {
     this._meta = Meta.loading;
     this._products = getInitialCollectionModel();
@@ -61,6 +89,7 @@ export default class ProductsListStore implements IProductsStore, ILocalStore {
       },
       data: {},
     });
+
     runInAction(() => {
       if (!response.success) {
         this._meta = Meta.error;
@@ -78,5 +107,6 @@ export default class ProductsListStore implements IProductsStore, ILocalStore {
   destroy(): void {
     this._products = getInitialCollectionModel();
     this._meta = Meta.initial;
+    this._total = 0;
   }
 }

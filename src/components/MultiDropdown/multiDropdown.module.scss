@@ -1,12 +1,13 @@
 @import '@styles/variables';
 
 .multiDropdown {
-  width: 380px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(175, 173, 181, 0.2);
+  position: relative;
+  display: inline-block;
   &__res {
     display: flex;
     align-items: center;
-    width: 380px;
-    height: 86px;
     box-shadow: 0 4px 120px rgba(175, 173, 181, 0.15);
     font-family: 'Eudoxus Sans', serif;
     font-style: normal;
@@ -15,14 +16,12 @@
     line-height: 180%;
     color: #afadb5;
     list-style-type: none;
-    margin-bottom: 15px;
-    padding: 0 0 0 26px;
+    padding: 26px;
     background: none;
-
     border: none;
-
     cursor: pointer;
     outline: inherit;
+
     &:focus:not([disabled]) {
       font-family: 'Eudoxus Sans', serif;
       font-style: normal;
@@ -43,9 +42,7 @@
   &__item {
     display: flex;
     align-items: center;
-    width: auto;
-    height: 50px;
-    padding: 0 0 0 16px;
+    padding: 16px;
     border: 1px solid #ffffff;
     list-style-type: none;
     background: #ffffff;
@@ -69,6 +66,9 @@
     color: $main-green-color;
   }
   &__box {
+    position: absolute;
+    z-index: 1;
     box-shadow: 0 4px 120px rgba(175, 173, 181, 0.15);
+    width: 100%;
   }
 }

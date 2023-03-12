@@ -4,11 +4,11 @@
   display: flex;
   flex-direction: column;
   max-width: 394px;
+  margin: 0 29px 29px 0;
   &_img {
     max-height: 360px;
   }
   &_title {
-    height: 34px;
     font-family: 'Eudoxus Sans', serif;
     font-style: normal;
     font-weight: 700;
@@ -19,7 +19,6 @@
     margin-top: 18px;
   }
   &_subtitle {
-    height: 32px;
     margin-top: 6px;
     font-family: 'Eudoxus Sans', serif;
     font-style: normal;

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import Icon from '@components/Icon';
+import filter from '@components/img/filter.svg';
 import styles from '@components/MultiDropdown/multiDropdown.module.scss';
 
 export type Option = {
@@ -28,12 +30,10 @@ export const MultiDropdown: React.FC<MultiDropdownProps> = (props) => {
 
   const [clicked, setClicked] = useState<Option[]>([...props.value]);
 
-  if (props.value.toString() !== clicked.toString()) {
-    setClicked([...props.value]);
-  }
   const optionIsClicked = (option: Option) =>
     clicked.find((item) => item.key === option.key);
 
+  let title = props.pluralizeOptions(clicked);
   return (
     <div className={styles.multiDropdown}>
       <button
@@ -41,7 +41,8 @@ export const MultiDropdown: React.FC<MultiDropdownProps> = (props) => {
         disabled={props.disabled}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {props.pluralizeOptions(clicked)}
+        <Icon style={{ marginRight: '12px' }} src={filter} />
+        {title}
       </button>
       {!props.disabled && isOpen && (
         <div className={styles.multiDropdown__box}>
@@ -54,7 +55,6 @@ export const MultiDropdown: React.FC<MultiDropdownProps> = (props) => {
                       const newClicked = clicked.filter(
                         (item) => item.key !== option.key
                       );
-
                       setClicked(newClicked);
                       props.onChange(newClicked);
                     }}

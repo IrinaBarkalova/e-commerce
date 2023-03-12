@@ -11,7 +11,6 @@ export type RequestParams<ReqT> = {
   endpoint: string;
   headers: Record<string, string>;
   params?: Record<string, number>;
-
   data: ReqT;
 };
 
