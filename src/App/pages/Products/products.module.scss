@@ -4,6 +4,15 @@
   display: flex;
   flex-direction: column;
   padding: 0 100px;
+  @media (max-width: 1200px) {
+    padding: 0 50px;
+  }
+  @media (max-width: 840px) {
+    padding: 0 30px;
+  }
+  @media (max-width: 500px) {
+    padding: 0 10px;
+  }
 
   & h1 {
     align-items: center;
@@ -15,6 +24,10 @@
     line-height: 130%;
     text-align: center;
     color: $main-black-color;
+    @media (max-width: 500px) {
+      font-size: 26px;
+      margin-top: 50px;
+    }
   }
   & p {
     align-items: center;
@@ -26,6 +39,9 @@
     line-height: 180%;
     text-align: center;
     color: #afadb5;
+    @media (max-width: 500px) {
+      font-size: 14px;
+    }
   }
   & h2 {
     flex-direction: row;
@@ -37,6 +53,11 @@
     font-size: 44px;
     line-height: 130%;
     color: $main-black-color;
+    @media (max-width: 500px) {
+      font-size: 18px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }
   }
   &_row {
     display: flex;
@@ -44,12 +65,26 @@
     align-items: center;
     justify-content: space-around;
     margin-top: 50px;
+    @media (max-width: 840px) {
+      display: grid;
+      grid-auto-columns: 0fr;
+    }
+
   }
-  &_card{
+  &_card {
     margin-top: 50px;
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
+    @media (max-width: 1700px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 840px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 500px) {
+      margin-top: 0;
+    }
   }
   &_total {
     display: flex;
@@ -68,6 +103,8 @@
     line-height: 130%;
 
     color: $main-green-color;
+    @media (max-width: 500px) {
+      font-size: 12px;
+    }
   }
-
 }

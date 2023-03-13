@@ -5,6 +5,15 @@
   flex-direction: column;
   max-width: 394px;
   margin: 0 29px 29px 0;
+  @media (max-width: 1200px) {
+    max-width: 310px;
+  }
+  @media (max-width: 1024px) {
+    max-width: 260px;
+  }
+  @media (max-width: 500px) {
+    max-width: 156px;
+  }
   &_img {
     max-height: 360px;
   }
@@ -17,6 +26,10 @@
     letter-spacing: 0.01em;
     color: $main-black-color;
     margin-top: 18px;
+    @media (max-width: 500px) {
+      font-size: 14px;
+      line-height: 18px;
+    }
   }
   &_subtitle {
     margin-top: 6px;
@@ -26,6 +39,14 @@
     font-size: 18px;
     line-height: 32px;
     color: #afadb5;
+    max-height: 30px;
+    overflow: hidden;
+    @media (max-width: 500px) {
+      font-size: 12px;
+      line-height: 22px;
+      max-height: 40px;
+      overflow: hidden;
+    }
   }
   &_content {
     margin-top: 18px;
@@ -36,5 +57,9 @@
     line-height: 130%;
 
     color: $main-black-color;
+    @media (max-width: 500px) {
+      font-size: 14px;
+      line-height: 18px;
+    }
   }
 }
