@@ -10,9 +10,15 @@
   line-height: 130%;
   text-align: center;
   color: #ffffff;
-  padding: 16px 28px;
+  padding: 16px 27px;
   cursor: pointer;
   outline: inherit;
+  max-width: 138px;
+  max-height: 54px;
+  @media (max-width: 500px) {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
 
   &:hover:not([disabled]) {
     opacity: 0.7;

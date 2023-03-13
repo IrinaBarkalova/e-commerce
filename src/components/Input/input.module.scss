@@ -1,8 +1,6 @@
 @import '@styles/variables';
 
 .input {
-  width: 299.72px;
-  height: 84px;
   background: #ffffff;
   box-shadow: 0 4px 120px rgba(175, 173, 181, 0.15);
   font-family: 'Eudoxus Sans', serif;
@@ -12,7 +10,11 @@
   line-height: 180%;
   color: #afadb5;
   border: none;
-
+  margin-right: auto;
+  @media (max-width: 500px) {
+    max-width: 120px;
+    font-size: 14px;
+  }
   &:focus:not([disabled]) {
     border: 1px solid $main-green-color;
     outline: none;
@@ -24,5 +26,38 @@
     font-size: 18px;
     line-height: 180%;
     color: $main-black-color;
+  }
+  &_block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 84px;
+    width: 1020px;
+    background: #ffffff;
+    padding: 15px 28px;
+    box-shadow: 0 4px 20px rgba(175, 173, 181, 0.2);
+    margin-right: 30px;
+    box-sizing: border-box;
+    @media (max-width: 840px) {
+      max-width: 720px;
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 500px) {
+      max-width: 327px;
+      max-height: 54px;
+      padding: 15px 16px;
+
+    }
+  }
+  &_icon{
+    margin-right: 18px;
+    width: 32px;
+    height: 32px;
+    @media (max-width: 500px) {
+      margin-right: 12px;
+      width: 24px;
+      height: 24px;
+    }
   }
 }

@@ -4,7 +4,10 @@
     "paths": {
       "@App/*": ["src/App/*"],
       "@components/*": ["src/components/*"],
-      "@styles/*": ["src/styles/*"]
+      "@styles/*": ["src/styles/*"],
+      "@config/*": ["src/config/*"],
+      "@utils/*": ["src/utils/*"],
+      "@store/*": ["src/store/*"]
     }
   }
 }

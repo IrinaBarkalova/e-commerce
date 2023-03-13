@@ -1,12 +1,14 @@
 @import '@styles/variables';
 
 .multiDropdown {
-  width: 380px;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(175, 173, 181, 0.2);
+  position: relative;
+  display: inline-block;
+
   &__res {
     display: flex;
     align-items: center;
-    width: 380px;
-    height: 86px;
     box-shadow: 0 4px 120px rgba(175, 173, 181, 0.15);
     font-family: 'Eudoxus Sans', serif;
     font-style: normal;
@@ -15,14 +17,20 @@
     line-height: 180%;
     color: #afadb5;
     list-style-type: none;
-    margin-bottom: 15px;
-    padding: 0 0 0 26px;
+    padding: 26px;
     background: none;
-
     border: none;
-
     cursor: pointer;
     outline: inherit;
+    @media (max-width: 1440px) {
+      min-width: 178px;
+    }
+    @media (max-width: 840px) {
+      margin: auto;
+    }
+    @media (max-width: 500px) {
+      max-height: 54px;
+    }
     &:focus:not([disabled]) {
       font-family: 'Eudoxus Sans', serif;
       font-style: normal;
@@ -43,12 +51,14 @@
   &__item {
     display: flex;
     align-items: center;
-    width: auto;
-    height: 50px;
-    padding: 0 0 0 16px;
+    padding: 16px;
     border: 1px solid #ffffff;
     list-style-type: none;
     background: #ffffff;
+    @media (max-width: 840px) {
+      padding: 16px 30px;
+      font-size: 19px;
+    }
   }
   &__notClicked {
     font-family: 'Eudoxus Sans', serif;
@@ -69,6 +79,9 @@
     color: $main-green-color;
   }
   &__box {
+    position: absolute;
+    z-index: 1;
     box-shadow: 0 4px 120px rgba(175, 173, 181, 0.15);
+    width: 100%;
   }
 }
