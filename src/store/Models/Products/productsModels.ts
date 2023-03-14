@@ -31,12 +31,12 @@ export type ProductsModel = {
   category: ProductCategoryModel;
   images: string[];
 };
-export const getInitialProductsModel = () => ({
+export const getInitialProductModel = () => ({
   id: -1,
   title: '',
   price: -1,
   description: '',
-  category: getInitialProductsCategoryModel,
+  category: getInitialProductsCategoryModel(),
   images: [''],
 });
 export type ProductsApiModel = {

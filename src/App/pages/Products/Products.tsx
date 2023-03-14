@@ -5,6 +5,7 @@ import { Card } from '@components/Card/Card';
 import { Input } from '@components/Input/Input';
 import { Loader } from '@components/Loader/Loader';
 import { MultiDropdown, Option } from '@components/MultiDropdown/MultiDropdown';
+import { routing } from '@config/apiUrls';
 import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router-dom';
 
@@ -33,7 +34,7 @@ const Products = () => {
         We display products based on the latest products we have, if you want
         <br /> to see our old products please enter the name of the item
       </p>
-      <div className={styles.products_row}>
+      <div className={styles.products_search}>
         <Input
           value={'Search property'}
           onChange={() => {}}
@@ -63,8 +64,8 @@ const Products = () => {
             image={product.images[0]}
             title={product.title}
             subtitle={product.description}
-            content={product.price}
-            onClick={() => navigate(`/product/${product.id}`)}
+            content={`$ ${product.price}`}
+            onClick={() => navigate(routing.urls.productPage(product.id))}
           />
         ))}
       </div>

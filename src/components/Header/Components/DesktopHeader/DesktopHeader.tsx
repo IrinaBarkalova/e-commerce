@@ -6,7 +6,7 @@ import bag from '@components/img/bag.svg';
 import label from '@components/img/label.svg';
 import user from '@components/img/user.svg';
 import { Link } from 'react-router-dom';
-
+//TODO подумать над вкладками
 const DesktopHeader = () => (
   <div className={styles.header}>
     <div className={styles.header__icon}>

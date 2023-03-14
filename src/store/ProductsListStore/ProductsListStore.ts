@@ -1,3 +1,4 @@
+import { apiUrls } from '@config/apiUrls';
 import { HTTPMethod } from '@store/ApiStore/types';
 import {
   normalizeProductsToCollection,
@@ -16,6 +17,7 @@ import {
 } from '@utils/collection';
 import { Meta } from '@utils/meta';
 import { ILocalStore } from '@utils/useLocalStore';
+import axios from 'axios';
 import {
   action,
   computed,
@@ -79,19 +81,10 @@ export default class ProductsListStore implements IProductsStore, ILocalStore {
   async getProductsList(params: GetProductsListParams): Promise<void> {
     this._meta = Meta.loading;
     this._products = getInitialCollectionModel();
-    const response = await this.apiStore.request<ProductsApiModel[]>({
-      method: HTTPMethod.GET,
-      endpoint: 'products',
-      headers: { Accept: 'application/json' },
-      params: {
-        offset: params.offset,
-        limit: params.limit,
-      },
-      data: {},
-    });
+    const response = await axios(apiUrls.listOfProducts(params));
 
     runInAction(() => {
-      if (!response.success) {
+      if (response.status === 404) {
         this._meta = Meta.error;
       }
       try {
